@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+
+option csharp_namespace = "Tutorium.Grpc.User";
+
+package userGrpc;
+
+service UserGrpc {
+  rpc IsUserExists (IsUserExistsRequest) returns (IsUserExistsResponse);
+  rpc CreateUser (CreateUserRequest) returns (google.protobuf.Empty);
+}
+
+message IsUserExistsRequest {
+  string email = 1;
+}
+
+message IsUserExistsResponse {
+  bool exists = 1;
+}
+
+message CreateUserRequest {
+	string email = 1;
+	string passwordHash = 2;
+	google.protobuf.Timestamp CreatedAtUtc = 3;
+}
