@@ -9,7 +9,7 @@ package userGrpc;
 
 service UserGrpc {
   rpc IsUserExists (IsUserExistsRequest) returns (IsUserExistsResponse);
-  rpc CreateUser (CreateUserRequest) returns (google.protobuf.Empty);
+  rpc CreateUser (CreateUserRequest) returns (CreateUserResponse);
 }
 
 message IsUserExistsRequest {
@@ -24,4 +24,8 @@ message CreateUserRequest {
 	string email = 1;
 	string passwordHash = 2;
 	google.protobuf.Timestamp CreatedAtUtc = 3;
+}
+
+message CreateUserResponse {
+	int32 userId = 1;
 }
