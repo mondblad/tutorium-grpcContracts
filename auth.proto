@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+
+option csharp_namespace = "Tutorium.Grpc.Auth";
+
+package authGrpc;
+
+service AuthGrpc {
+  rpc GetUserIdBySession (GetUserIdBySessionRequest) returns (GetUserIdBySessionResponse);
+}
+
+message GetUserIdBySessionRequest {
+  string sessionId = 1;
+}
+
+message GetUserIdBySessionResponse {
+  optional int32 userId = 1;
+}
